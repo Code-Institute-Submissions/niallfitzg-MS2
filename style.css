@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
+/*--------------------------------------------Global Style*/
+body {
+    font-family: Lato;
+    text-align: center;
+}
+/*--------------------------------------------Logo*/
+#covid-logo {
+    height: 100px;
+    align: center;
+}
+/*--------------------------------------------Cols*/
+.col-sm {
+    background-color: #FFEE00;
+    margin: 30px;
+    padding: 20px;
+    border-radius: 15px;   
+}
