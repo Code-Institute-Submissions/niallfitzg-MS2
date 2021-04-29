@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
+/*--------------------------------------------Global Style*/
+body {
+    font-family: Lato;
+    text-align: center;
+    background-color: lightblue;
+ }
+
+ h2 {
+     margin: auto;
+     font-size: 1.5rem;
+     padding: 20px;
+ }
+/*--------------------------------------------Logo & Title*/
+#title {
+    margin: auto;
+    padding-top: 20px;
+    font-weight: 900;
+}
+
+#covid-logo {
+    height: 100px;
+    align: center;
+}
+/*--------------------------------------------Cols*/
+.col-sm {
+    background-color: #FFEE00;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 15px;
+     
+}
+/*--------------------------------------------Buttons*/
+.btn-primary {
+        background-color: black;
+        color: yellow;
+        border-color: black;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 5px;   
+        vertical-align: middle;     
+    }
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active    {
+        background-color: yellow;
+        color: black;
+        border-color: yellow;
+    }   
+/*--------------------------------------------rate-change*/
+#rate-change {
+    font-size: 9rem;
+    
+}
+/*--------------------------------------------Map*/
+div#map {
+    min-height: 360px;
+}
+/*--------------------------------------------Footer*/
+
+ footer {
+     margin: 20px;
+ }
+/*--------------------------------------------Media Queries*/
+@media only screen and (max-width: 600px) {
+  body {
+    
+ 
+  }
+}
