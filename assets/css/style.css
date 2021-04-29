@@ -11,6 +11,8 @@ body {
      font-size: 1.5rem;
      padding: 20px;
  }
+
+ 
 /*--------------------------------------------Logo & Title*/
 #title {
     margin: auto;
@@ -22,6 +24,7 @@ body {
     height: 100px;
     align: center;
 }
+
 /*--------------------------------------------Cols*/
 .col-sm {
     background-color: #FFEE00;
@@ -30,6 +33,7 @@ body {
     border-radius: 15px;
      
 }
+
 /*--------------------------------------------Buttons*/
 .btn-primary {
         background-color: black;
@@ -46,25 +50,37 @@ body {
         background-color: yellow;
         color: black;
         border-color: yellow;
-    }   
+    }
+
+
+    
 /*--------------------------------------------rate-change*/
 #rate-change {
-    font-size: 9rem;
-    
+    font-size: 7rem;  
 }
+#operator {
+    font-size: 6rem;  
+}
+
+
 /*--------------------------------------------Map*/
 div#map {
     min-height: 360px;
 }
+
 /*--------------------------------------------Footer*/
 
  footer {
      margin: 20px;
  }
+
+
 /*--------------------------------------------Media Queries*/
+
 @media only screen and (max-width: 600px) {
   body {
     
- 
+    margin: 30px;
+    padding: 0px;
   }
 }

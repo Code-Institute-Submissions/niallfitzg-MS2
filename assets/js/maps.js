@@ -1,5 +1,4 @@
-//Maps example from course//
-function initMap() {
+function initMap(locationsArray) {
     var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 6,
         center: {
@@ -9,12 +8,10 @@ function initMap() {
     });
 
     var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-    var locations = [
-        { lat: 53.55861, lng: -6.32084},
-        { lat: 53.05973, lng: -7.29863},
-        { lat: 52.14566, lng: -8.55107 }
-    ];
+    var locations =[];
+    if(locationsArray!=undefined && locationsArray.length>0){
+        locations = locationsArray;
+    }
 
     var markers = locations.map(function(location, i) {
         return new google.maps.Marker({

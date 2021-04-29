@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
-      <title>2 Weeks Later</title>
-</head>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?"> 
+    <title>2 Weeks Later</title>
+    </head>
 <body>
     <header><!--Header Section-->
         <div>
-            <h1 id="title"><img id="covid-logo" src="assets/images/logo.png" alt="logo" /> 2 Weeks Later</a></h1>
+            <h1 id="title"><img id="covid-logo" src="assets/images/covid_logo.png" alt="logo" /> 2 Weeks Later</a></h1>
             <h2>View the impact of significant events on the spread of Covid-19 throughout Ireland</h2>
         </div>
     </header>
@@ -20,11 +20,11 @@
 	        <div class="row"> 
 		        <div class="col-sm "><!--Select the date-->
                     <h2>Choose An Event</h3>
-                        <div class="btn-group-vertical  col-sm">
-                            <button class="btn btn-primary btn-lg">First Date</button>
-                            <button class="btn btn-primary btn-lg">Second Date</button>
-                            <button class="btn btn-primary btn-lg">Third Date</button>
-                            <button class="btn btn-primary btn-lg">Fourth Date</button>        
+                        <div class="btn-group-vertical  col-sm ">
+                            <button onclick="fetchData()" type="button" class="btn btn-primary btn-lg">Back to School 15.04.21</button>
+                            <button onclick="fetchData()" type="button" class="btn btn-primary btn-lg">Easter Holiday 05.04.21</button>
+                            <button onclick="fetchData()" type="button" class="btn btn-primary btn-lg">St. Patrick's Day 17.03.21</button>   
+                            <button onclick="fetchData()" type="button" class="btn btn-primary btn-lg">Christmas Day 25.12.20</button>                   
                         </div>
                 </div>
                 
@@ -32,22 +32,26 @@
                     <h2>2 Week Rate Change</h3>
                    <span id="operator">+</span><span id="rate-change">0%</span>
                 </div>    
-                
                 <div class="col-sm"><!--Cluster Map-->
                     <h2>Affected Hot Spots</h3>
                         <div id="map"></div>
                 </div> 
 	        </div> 
-        </div>      
+        </div> 
+        
     </section>
     <footer>
-        <h4>Dynamically accessed using an API published by the Irish Government at <a href="https://data.gov.ie/">data.gov.ie</a></h4>
+        <p id="footer">Dynamically accessed using an API published by the Irish Government at <a href="https://data.gov.ie/"  target="_blank">data.gov.ie</a></p>
     </footer>
 <!--Scripts-->
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd4oFhiP9ILZoPpERBNyRRTU9pZuDOPsU&callback=initMap"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"> 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css" />
 <link rel="stylesheet" href="assets/css/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="assets/js/maps.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
