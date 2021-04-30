@@ -37,7 +37,7 @@ Between those two communities there is a wealth of experience on tap and I found
 
 ### Can you trust the data?
 During the course of the project it became apparent to me that the longitudinal and latitudunal data being returned by the API was at odds with common sense.
-Initially I thought my logic must have been incorrect but using Postman to interrogate the API I discovered that much of the same geographical data was being repeated throughout the data set, which meant that the google map clusters would not change much, but this is an issue with the data being provided by the API.
+Initially I thought my logic must have been incorrect but using Postman to interrogate the API I discovered that the same geographical data was being attached to each Covid Case across the data set, up to Wednessday April 14th 2021. From this date, fresh geographical data appears in the data set. This means that the google map clusters would not appear to change much on datestamps older than this, but this is an issue with the data being provided by the API. To this end, I have included April 14th as a button.
 
 ## Technologies Used
 The languages, frameworks, libraries and other tools used in the creation of this dashboard are:
