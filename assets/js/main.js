@@ -1,11 +1,10 @@
-// Query the government data API for "Confirmed Cases",  "Longitude", and "Latitude" between the date on the button and 14 days later
-// No Key required
 
+// Query theAPI  for "Confirmed Cases",  "Longitude", and "Latitude" between the date on the button and 14 days later
 function fetchData(){
 	let textOnButton = event.target.textContent.split(" ");
 	let date= (typeof(textOnButton)=="object") ? textOnButton[textOnButton.length-1] : textOnButton;
 	
-	//format the date for the query
+	//formatting the date
 	let completeDate = date.split(".");
 	let day = completeDate[0];
 	let month = completeDate[1];
@@ -16,14 +15,13 @@ function fetchData(){
 	let dateClicked = formattedDate.toLocaleDateString();
 
 	//adding 14 days 
-	formattedDate.setDate(formattedDate.getDate()+14);
+	formattedDate.setDate(formattedDate.getDate()+15);
 	let lDay = formattedDate.getDate();
 	let lMonth = formattedDate.getMonth()+1;
 	let lYear = formattedDate.getFullYear();
 	let fourteenDaysLaterDate = lMonth+"/"+lDay+"/"+lYear;
-    
-    //Query by Timestamp, omit Geometric Data
-	let url = "https://services1.arcgis.com/eNO7HHeQ3rUcBllm/arcgis/rest/services/Covid19CountyStatisticsHPSCIreland/FeatureServer/0/query?where=TimeStamp>='"+newDate+"' AND TimeStamp<'"+fourteenDaysLaterDate+"'&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=TimeStamp+%2C+ConfirmedCovidCases+%2C+Lat+%2C+Long&returnGeometry=false&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token=";
+	
+	let url = "https://services1.arcgis.com/eNO7HHeQ3rUcBllm/arcgis/rest/services/Covid19CountyStatisticsHPSCIreland/FeatureServer/0/query?where=TimeStamp>='"+newDate+"' AND TimeStamp<'"+fourteenDaysLaterDate+"'&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=TimeStamp+%2C+ConfirmedCovidCases+%2C+Lat+%2C+Long&returnGeometry=false&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=TimeStamp ASC&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token=";
 	 
 	 let data = $.ajax({
             url: url,
@@ -33,7 +31,16 @@ function fetchData(){
             	//Calculate total number of “Confirmed Cases” between those 2 dates
             	let totalCovidCases = 0;
             	let locationArray = [];
+                let upperRange = '' , lowerRange='';
+                let casesOnLowerRange = 0;
+                let index=0;
                 for(let attr=0;attr<response.features.length;attr++){
+                    upperRange = response.features[index].attributes.TimeStamp;
+                    casesOnLowerRange = response.features[index].attributes.ConfirmedCovidCases;
+                    lowerRange = response.features[attr].attributes.TimeStamp;
+                    if(upperRange!=lowerRange){
+                        index = attr;
+                    }
                 	totalCovidCases+=response.features[attr].attributes.ConfirmedCovidCases;
                 	// Pass the "Longitude", and "Latitude" data for any “Confirmed Cases” between the 2 dates to the array “locations” in maps.js
                 	if(response.features[attr].attributes.ConfirmedCovidCases>0){
@@ -45,12 +52,11 @@ function fetchData(){
                 //calculate percentage change in “Confirmed Cases” between first date and last date
                 let casesOnFirstDay = response.features[0].attributes.ConfirmedCovidCases;
                 let casesOnLastDay = response.features[response.features.length-1].attributes.ConfirmedCovidCases;
-              
-                let calcChange = casesOnLastDay - casesOnFirstDay;
+                let calcChange = casesOnLowerRange - casesOnFirstDay;
                 let percentageChange = Math.ceil((Math.abs(calcChange) / casesOnFirstDay) *100);
                 $('#rate-change').text(percentageChange+"%");
                 $('#numCovidCasesThisDate').text(casesOnFirstDay);
-               
+                $('#numCovidCasesLastDate').text(casesOnLowerRange);
                 if(calcChange<0){
                 	$('#operator').text("-");
                 }

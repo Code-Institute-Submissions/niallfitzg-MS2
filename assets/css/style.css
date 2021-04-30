@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
+
+
+
 /*--------------------------------------------Global Style*/
 body {
     font-family: Lato;
@@ -56,11 +59,13 @@ body {
     
 /*--------------------------------------------rate-change*/
 #rate-change {
-    font-size: 7rem;  
+    font-size: 7rem; 
 }
+
 #operator {
-    font-size: 6rem;  
+    font-size: 6rem; 
 }
+
 
 
 /*--------------------------------------------Map*/

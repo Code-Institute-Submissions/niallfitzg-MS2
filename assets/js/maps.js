@@ -1,4 +1,4 @@
-function initMap(locationsArray) {
+function initMap(locations) {
     var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 6,
         center: {
@@ -8,10 +8,8 @@ function initMap(locationsArray) {
     });
 
     var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var locations =[];
-    if(locationsArray!=undefined && locationsArray.length>0){
-        locations = locationsArray;
-    }
+
+    var locations = locations;
 
     var markers = locations.map(function(location, i) {
         return new google.maps.Marker({
