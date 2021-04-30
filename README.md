@@ -5,7 +5,7 @@ This data dashboard is designed to show the effect of national Irish events on t
 It allows the user to select a date, which is then dynamically read from the button and used to interrogate an API at https://opendata-geohive.hub.arcgis.com/datasets/d9be85b30d7748b5b7c09450b8aede63_0/ to return the number of Confirmed Covid Cases on that date, the number of confirmed Covid cases 2 weeks later, calculate the percentage rate change, and pass co-ordinates to a google cluster map to visualise the clusters. 
 
 The link for the dashboard is: 
-https://niallfitzg.github.io/2WeeksLater/
+https://niallfitzg.github.io/MS2/
 
 It is alaso available publically at:
 http://alphatech.ie/covid/
