@@ -5,7 +5,7 @@ This data dashboard is designed to show the effect of national Irish events on t
 It allows the user to select a date, which is then dynamically read from the button and used to interrogate an API at https://opendata-geohive.hub.arcgis.com/datasets/d9be85b30d7748b5b7c09450b8aede63_0/ to return the number of Confirmed Covid Cases on that date, the number of confirmed Covid cases 2 weeks later, calculate the percentage rate change, and pass co-ordinates to a google cluster map to visualise the clusters. 
 
 The link for the dashboard is: 
-*https://niallfitzg.github.io/2WeeksLater/
+https://niallfitzg.github.io/2WeeksLater/
 
 It is alaso available publically at:
 http://alphatech.ie/covid/
@@ -24,7 +24,7 @@ The rules of an API are the most important thing to tackle, and in this instance
 The most cumbersome part of this project was thoroughly understanding not only the query parameters that this API expects, but also the data it returns.
 For instance, by default, it returns a dataset with a *truckload* of geospatial information alongside anything of relevance.
 This served to overwhelm the memory of my computer and for a long time left me wondering why nothing appeared to be working.
-It took a copule of weeks of trying and failing but eventually I figured out the issue, and the way to overcome it with the aid of the *Postman* app, which is a pretty neat.
+It took a couple of weeks of trying and failing but eventually I figured out the issue, and the way to overcome it with the aid of the *Postman* app, which is a pretty neat.
 
 ### The Epoch
 Apparently, the world was created on January 1st, 1970. At least, that's what the Unix programmers amongst us would have us believe, as I discovered that it's the time system for query datestamps.
@@ -36,8 +36,8 @@ Both of these places were great to turn to when trying to problem solve and avoi
 Between those two communities there is a wealth of experience on tap and I found them to be excellent resources, especially with regards to how to query the API in the first place, then with Epoch time, and then again with the logic and methodology required to achieve the desired outcomes.
 
 ### Can you trust the data?
-During the course of the project it became apparent to me that the longitudinal and latidunal data being returned by the API was at odds with common sense.
-Initially I thought my logic must have been incorrect but using Postman to interrogate the API I discovered that much of the same geographical data was being repeated throughout the data set, which is an issue for the API provider.
+During the course of the project it became apparent to me that the longitudinal and latitudunal data being returned by the API was at odds with common sense.
+Initially I thought my logic must have been incorrect but using Postman to interrogate the API I discovered that much of the same geographical data was being repeated throughout the data set, which meant that the google map clusters would not change much, but this is an issue with the data being provided by the API.
 
 ## Technologies Used
 The languages, frameworks, libraries and other tools used in the creation of this dashboard are:
@@ -50,7 +50,9 @@ The languages, frameworks, libraries and other tools used in the creation of thi
 
 *	**Bootstrap 5 Beta -** The open-source responsive Bootstrap framework has been used to implement the layout. https://getbootstrap.com/
 
-*	**Google Fonts-** The dashboard uses Google fonts https://fonts.google.com/to adhere to Covid-19 messaging guidelines as laid down by the Dept. of Health https://assets.gov.ie › ...
+*	**Google Fonts-** The dashboard uses Google fonts https://fonts.google.com/ to adhere to Covid-19 messaging guidelines as laid down by the Dept. of Health https://assets.gov.ie › ...
+
+*   **Google Maps-** The dashboard uses the Google Maps cluster facility https://developers.google.com/maps/documentation/javascript/examples.
  
 *   **JavaScript -** The dashboard uses Javascript to provide dynamic interactivity.
 
@@ -69,4 +71,4 @@ The project was tested against other published sources of Covid data during the 
 
 ### Acknowledgments
 
-Thank you to my Mentor Reuben Ferrante.
+Thank you to my mentor Reuben Ferrante.
